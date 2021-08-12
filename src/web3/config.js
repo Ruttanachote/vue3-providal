@@ -16,7 +16,7 @@ const providerOptions = {
   walletconnect: {
     package: WalletConnectProvider,
     options: {
-      infuraId: "xxxxxxxxxx", // TODO infuraId
+      infuraId: "91fbb88dd1ee450eaebf8994d3e00007", // TODO infuraId
     },
   },
   // https://github.com/torusresearch/torus-embed#readme
