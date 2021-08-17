@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <button @click="handleWalletConnect">WalletConnect</button>
+  <div class="container">
+    <!-- <button @click="handleWalletConnect">WalletConnect</button>
+
     <button @click="resetApp">resetApp</button>
     <button @click="getAccountAssets">getBalance</button>
     <button @click="approve">approveUSDTContract</button>
@@ -10,7 +11,9 @@
     </p>
     <p>balance:{{ assets }}</p>
     <p>networkId: {{ networkId }}</p>
-    <p>chainId: {{ chainId }}</p>
+    <p>chainId: {{ chainId }}</p> -->
+    
+    <!-- <header/> -->
   </div>
 </template>
 <script setup>
@@ -19,7 +22,6 @@ import { utils } from "web3";
 import useWallet from "../hooks/useWallte";
 import { USDT_API } from "../web3/abis";
 import { USDT_ADDRESS } from "../web3/config";
-
 const {
   onConnect,
   connected,
