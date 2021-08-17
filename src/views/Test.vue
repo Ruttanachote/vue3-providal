@@ -338,7 +338,6 @@ import { utils } from "web3";
 import useWallet from "../hooks/useWallte";
 import { USDT_API } from "../web3/abis";
 import { USDT_ADDRESS } from "../web3/config";
-import Vue from 'vue';
 const {
   onConnect,
   connected,
@@ -371,21 +370,20 @@ function approve() {
 
 const value = computed(() => 90);
 
-const myappcomponent = {
-  data() {
-    return { responsedata: {} };
-  },
-  methods: {
-    fetchApi() {
-      console.log("Mounted");
-    },
-  },
-  mounted() {
-    this.fetchApi();
-  },
-};
+// const myappcomponent = {
+//   data() {
+//     return { responsedata: {} };
+//   },
+//   methods: {
+//     fetchApi() {
+//       console.log("Mounted");
+//     },
+//   },
+//   mounted() {
+//     this.fetchApi();
+//   },
+// };
 
-const app = Vue.createApp(myappcomponent).mounted('#app')
 // .....
 </script>
 <style lang="scss">
