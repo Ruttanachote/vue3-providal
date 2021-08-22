@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <!-- <button @click="handleWalletConnect">WalletConnect</button>
+    <button @click="handleWalletConnect">WalletConnect</button>
 
     <button @click="resetApp">resetApp</button>
     <button @click="getAccountAssets">getBalance</button>
@@ -11,7 +11,7 @@
     </p>
     <p>balance:{{ assets }}</p>
     <p>networkId: {{ networkId }}</p>
-    <p>chainId: {{ chainId }}</p> -->
+    <p>chainId: {{ chainId }}</p>
     
     <!-- <header/> -->
   </div>

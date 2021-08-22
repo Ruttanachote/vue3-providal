@@ -8,9 +8,9 @@ const INITIAL_STATE = {
   web3: null,
   provider: null,
   userAddress: "",
-  connected: false,
-  chainId: 1,
-  networkId: 1,
+  connected: true,
+  chainId: 56,
+  networkId: 56,
 };
 export default function UseWallet() {
   const { ctx: _this } = getCurrentInstance();
@@ -42,7 +42,10 @@ export default function UseWallet() {
   const getUserBalance = () =>
     walletObj.web3.eth
       .getBalance(walletObj.userAddress)
-      .then((res) => (res ? utils.fromWei(res.toString(), "ether") : 0));
+      .then((res) =>
+        res ? utils.fromWei(res.toString(), "ETH") : 0
+      );
+      // .then(console.log);
 
   const getAccountAssets = async () => {
     fetching.value = true;

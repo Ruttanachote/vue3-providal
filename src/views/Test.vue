@@ -10,7 +10,12 @@
                 <div class=""></div>
               </form>
               <div class="row">
-                <div class="btn btn-connect mx-2 text-white">0.00 DEDA</div>
+                <div
+                  class="btn btn-connect mx-2 text-white"
+                  @click="getAccountAssets"
+                >
+                  0.00 DEDA
+                </div>
 
                 <div v-if="userAddress">
                   <div

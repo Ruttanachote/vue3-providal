@@ -12,7 +12,7 @@ const { USDT_ADDRESS } =
     : require("./constants.dev");
 //
 const providerOptions = {
-  //https://docs.walletconnect.org/
+  // https://docs.walletconnect.org/
   walletconnect: {
     package: WalletConnectProvider,
     options: {
@@ -34,7 +34,7 @@ const providerOptions = {
   // authereum: {
   //   package: Authereum,
   // },
-  //https://docs.bitski.com/
+  // https://docs.bitski.com/
   // bitski: {
   //   package: Bitski,
   //   options: {

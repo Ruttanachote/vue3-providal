@@ -1,18 +1,18 @@
 <template>
   <div>
-    <ConnectWallte />
+    <!-- <ConnectWallte /> -->
 
     <router-view />
   </div>
 </template>
 <script>
-import ConnectWallte from "./components/ConnectWallte.vue";
+// import ConnectWallte from "./components/ConnectWallte.vue";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "equal-vue/dist/style.css";
 
 export default {
   components: {
-    ConnectWallte,
+    // ConnectWallte,
   },
 };
 </script>
