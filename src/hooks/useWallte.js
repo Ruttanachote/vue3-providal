@@ -9,8 +9,8 @@ const INITIAL_STATE = {
   provider: null,
   userAddress: "",
   connected: true,
-  chainId: 56,
-  networkId: 56,
+  chainId: 1,
+  networkId: 1,
 };
 export default function UseWallet() {
   const { ctx: _this } = getCurrentInstance();
