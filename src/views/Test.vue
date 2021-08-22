@@ -28,7 +28,7 @@
                 <div
                   v-else
                   class="btn btn-connect mx-2 text-white"
-                  @click="handleWalletConnect()"
+                  @click="addNetwork()"
                 >
                   connnect wallet
                 </div>
@@ -390,6 +390,27 @@ const value = computed(() => 90);
 // };
 
 // .....
+
+const addNetwork = () => {
+  const params = [
+    {
+      chainId: "0x38",
+      chainName: "Binance Smart Chain",
+      nativeCurrency: {
+        name: "BNB",
+        symbol: "BNB",
+        decimals: 18,
+      },
+      rpcUrls: ["https://bsc-dataseed.binance.org/"],
+      blockExplorerUrls: ["https://bscscan.com"],
+    },
+  ];
+
+  window.ethereum
+    .request({ method: "wallet_addEthereumChain", params })
+    .then(() => console.log("Success"), handleWalletConnect())
+    .catch((error) => console.log("Error", error.message));
+};
 </script>
 <style lang="scss">
 .text {
