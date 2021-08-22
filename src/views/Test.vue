@@ -14,7 +14,7 @@
                   class="btn btn-connect mx-2 text-white"
                   @click="getAccountAssets"
                 >
-                  0.00 DEDA
+                  0.00 DEDA  ChainId {{chainId}}
                 </div>
 
                 <div v-if="userAddress">
