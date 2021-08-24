@@ -12,7 +12,7 @@
     <p>balance:{{ assets }}</p>
     <p>networkId: {{ networkId }}</p>
     <p>chainId: {{ chainId }}</p>
-    
+
     <!-- <header/> -->
   </div>
 </template>

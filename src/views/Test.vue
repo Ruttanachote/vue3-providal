@@ -5,6 +5,21 @@
         <nav class="navbar navbar-dark navbar-expand-md">
           <div class="container">
             <a class="navbar-brand" href="#">Deda</a>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <router-link to="/main" class="nav-link" href="#"
+                  >Home</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link to="/test" class="nav-link" href="#"
+                  >Heven & Hell</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">more feature..</a>
+              </li>
+            </ul>
             <div class="" id="navcol-1">
               <form class="mr-auto" target="_self">
                 <div class=""></div>
@@ -12,9 +27,9 @@
               <div class="row">
                 <div
                   class="btn btn-connect mx-2 text-white"
-                  @click="getAccountAssets"
+                  @click="addToken()"
                 >
-                  0.00 DEDA  ChainId {{chainId}}
+                  {{ assets }} DEDA  chain ID {{ chainId }}
                 </div>
 
                 <div v-if="userAddress">
@@ -39,17 +54,122 @@
         <div class="container p-5">
           <div class="">
             <div class="row">
-              <div class="col-lg-3 col-md-6 l-12 py-3">
-                <div class="card p-5"></div>
+              <div class="col-lg-4 col-md-6 l-12 py-3">
+                <div class="card bg-second-card-crypto">
+                  <div class="p-2">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <img
+                          class="avatar"
+                          :src="require('/src/assets/images/bitcoin_PNG48.png')"
+                        />
+                      </div>
+                      <h4>$23,523</h4>
+                      <span class="">
+                        <div
+                          class="
+                            badge badge-pill badge-cyan
+                            font-size-12
+                            bg-success
+                          "
+                        >
+                          <i class="fas fa-arrow-up"></i>
+                          <span class="font-weight-semibold ml-1">+6.71 %</span>
+                        </div>
+                        <p class="mb-0 text-left text">BTC</p>
+                        <apexchart
+                          type="line"
+                          height="70"
+                          width="100"
+                          class="p-0 m-0 text-dark"
+                          :options="chartOptions"
+                          :series="series"
+                        ></apexchart>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-lg-3 col-md-6 col-12 py-3">
-                <div class="card p-5"></div>
+              <div class="col-lg-4 col-md-6 col-12 py-3">
+                <div class="card bg-second-card-crypto">
+                  <div class="p-0">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <img
+                          class="avatar px-3"
+                          :src="
+                            require('/src/assets/images/eth-diamond-purple.png')
+                          "
+                        />
+                      </div>
+                      <h4>$3,275</h4>
+                      <span class="">
+                        <div
+                          class="
+                            badge badge-pill badge-cyan
+                            font-size-12
+                            bg-success
+                          "
+                        >
+                          <i class="fas fa-arrow-up"></i>
+                          <span class="font-weight-semibold ml-1">+0.70 %</span>
+                        </div>
+                        <p class="mb-0 text-left text">ETH</p>
+                        <apexchart
+                          type="line"
+                          height="70"
+                          width="100"
+                          class="p-0 m-0 text-dark"
+                          :options="chartOptions"
+                          :series="series"
+                        ></apexchart>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-lg-3 col-md-6 col-12 py-3">
-                <div class="card p-5"></div>
-              </div>
-              <div class="col-lg-3 col-md-6 col-12 py-3">
-                <div class="card p-5"></div>
+              <div class="col-lg-4 col-md-6 col-12 py-3">
+                <div class="card bg-second-card-crypto">
+                  <div class="p-0">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <!-- <img
+                          class="avatar"
+                          :src="require('/src/assets/images/bitcoin_PNG48.png')"
+                        /> -->
+                        <h5 class="px-2">Deda</h5>
+                      </div>
+                      <h4>$23,523</h4>
+                      <span class="">
+                        <div
+                          class="
+                            badge badge-pill badge-cyan
+                            font-size-12
+                            bg-success
+                          "
+                        >
+                          <i class="fas fa-arrow-up"></i>
+                          <span class="font-weight-semibold ml-1">6.71%</span>
+                        </div>
+                        <p class="mb-0 text-left text">Deda</p>
+                        <apexchart
+                          type="line"
+                          height="70"
+                          width="100"
+                          class="p-0 m-0 text-dark"
+                          :options="chartOptions"
+                          :series="series"
+                        ></apexchart>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="card bg-card px-5">
@@ -337,12 +457,16 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import { computed } from "vue";
 import { utils } from "web3";
 import useWallet from "../hooks/useWallte";
 import { USDT_API } from "../web3/abis";
 import { USDT_ADDRESS } from "../web3/config";
+
+import VueApexCharts from "vue3-apexcharts"; // @ is an alias to /src
+
 const {
   onConnect,
   connected,
@@ -375,21 +499,25 @@ function approve() {
 
 const value = computed(() => 90);
 
-// const myappcomponent = {
-//   data() {
-//     return { responsedata: {} };
-//   },
-//   methods: {
-//     fetchApi() {
-//       console.log("Mounted");
-//     },
-//   },
-//   mounted() {
-//     this.fetchApi();
-//   },
-// };
+const addToken = () => {
+  const tokenAddress = "0xd00981105e61274c8a5cd5a88fe7e037d935b513";
+  const tokenSymbol = "TUT";
+  const tokenDecimals = 18;
+  const tokenImage = "http://placekitten.com/200/300";
 
-// .....
+  window.ethereum.request({
+    method: "wallet_watchAsset",
+    params: {
+      type: "ERC20", // Initially only supports ERC20, but eventually more!
+      options: {
+        address: tokenAddress, // The address that the token is at.
+        symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+        decimals: tokenDecimals, // The number of decimals in the token
+        image: tokenImage, // A string url of the token logo
+      },
+    },
+  });
+};
 
 const addNetwork = () => {
   const params = [
@@ -411,8 +539,123 @@ const addNetwork = () => {
     .then(() => console.log("Success"), handleWalletConnect())
     .catch((error) => console.log("Error", error.message));
 };
+
+const series = [
+  {
+    name: "Sales",
+    data: [4, 3, 20, 9, 29, 19, 22, 9],
+  },
+];
+const chartOptions = {
+  chart: {
+    toolbar: {
+      show: false,
+      offsetX: 0,
+      offsetY: 0,
+      tools: {
+        download: false,
+        selection: false,
+        zoom: false,
+        zoomin: false,
+        zoomout: false,
+        pan: false,
+        reset: false | '<img src="/static/icons/reset.png" width="20">',
+        customIcons: [],
+      },
+    },
+    type: "line",
+  },
+
+  stroke: {
+    width: 5,
+    curve: "smooth",
+  },
+  xaxis: {
+    type: "datetime",
+    categories: [
+      "1/11/2000",
+      "2/11/2000",
+      "3/11/2000",
+      "4/11/2000",
+      "5/11/2000",
+      "6/11/2000",
+      "7/11/2000",
+      "8/11/2000",
+    ],
+
+    labels: {
+      show: false,
+    },
+    axisBorder: {
+      show: false,
+    },
+    axisTicks: {
+      show: false,
+    },
+  },
+  title: {
+    // text: "Forecast",
+    align: "left",
+    style: {
+      fontSize: "16px",
+      color: "#666",
+    },
+  },
+  fill: {
+    type: "gradient",
+    // gradient: {
+    //   shade: "dark",
+    //   gradientToColors: ["#FDD835"],
+    //   shadeIntensity: 1,
+    //   type: "horizontal",
+    //   opacityFrom: 1,
+    //   opacityTo: 1,
+    //   stops: [0, 100, 100, 100],
+    // },
+  },
+  yaxis: {
+    labels: { show: false },
+    min: -10,
+    max: 40,
+  },
+  grid: {
+    show: false,
+  },
+  tooltip: {
+    enabled: true,
+    x: {
+      show: false,
+    },
+    marker: {
+      show: true,
+    },
+  },
+};
 </script>
+
 <style lang="scss">
+.avatar {
+  width: 80px;
+  height: 80px;
+}
+.bg-main-card-crypto {
+  border-radius: 5px;
+  background-color: #7dabf8;
+  color: #fff;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.bg-second-card-crypto {
+  border-radius: 5px;
+  border: #252b47;
+  border-style: solid;
+  border-width: 0.1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Poppins", sans-serif !important;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
 .text {
   font-family: "Poppins", sans-serif !important;
 }
