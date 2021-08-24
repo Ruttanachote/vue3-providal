@@ -56,7 +56,7 @@
             <div class="row">
               <div class="col-lg-4 col-md-6 l-12 py-3">
                 <div class="card bg-second-card-crypto">
-                  <div class="p-2">
+                  <div class="p-0">
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
@@ -278,7 +278,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row my-3 mx-5">
+              <div class="row my-3 mx-5 px-5">
                 <div class="col-4">
                   <div>
                     <svg
@@ -567,7 +567,7 @@ const chartOptions = {
   },
 
   stroke: {
-    width: 5,
+    width: 2,
     curve: "smooth",
   },
   xaxis: {
@@ -653,7 +653,7 @@ const chartOptions = {
   background-color: rgba(0, 0, 0, 0.1);
   color: rgba(255, 255, 255, 0.5);
   font-family: "Poppins", sans-serif !important;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1) !important;
+  box-shadow: rgba(16, 74, 173, 1);
 }
 
 .text {
