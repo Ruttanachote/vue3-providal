@@ -500,8 +500,8 @@ function approve() {
 const value = computed(() => 90);
 
 const addToken = () => {
-  const tokenAddress = "0xd00981105e61274c8a5cd5a88fe7e037d935b513";
-  const tokenSymbol = "TUT";
+  const tokenAddress = "0xA78291314A55Da2dc8d592FF16ef54587e10E961";
+  const tokenSymbol = "DEDAT1";
   const tokenDecimals = 18;
   const tokenImage = "http://placekitten.com/200/300";
 
