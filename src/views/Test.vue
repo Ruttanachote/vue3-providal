@@ -526,7 +526,7 @@ const addNetwork = () => {
       chainName: "Smart Chain - Testnet",
       nativeCurrency: {
         name: "BNB TEST",
-        symbol: "BNB TEST",
+        symbol: "DEDAT1",
         decimals: 18,
       },
       rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
