@@ -191,6 +191,22 @@ const supportedChains = [
       balance: "",
     },
   },
+  {
+    name: "Smart Chain - Testnet",
+    short_name: "BNB TEST",
+    chain: "smartchain",
+    network: "testnet",
+    chain_id: 97,
+    network_id: 97,
+    rpc_url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+    native_currency: {
+      symbol: "BNB TEST",
+      name: "BNB TEST",
+      decimals: "18",
+      contractAddress: "",
+      balance: "",
+    },
+  },
 ];
 
 export default supportedChains;

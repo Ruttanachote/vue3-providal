@@ -522,15 +522,15 @@ const addToken = () => {
 const addNetwork = () => {
   const params = [
     {
-      chainId: "0x38",
-      chainName: "Binance Smart Chain",
+      chainId: "0x61",
+      chainName: "Smart Chain - Testnet",
       nativeCurrency: {
-        name: "BNB",
-        symbol: "BNB",
+        name: "BNB TEST",
+        symbol: "BNB TEST",
         decimals: 18,
       },
-      rpcUrls: ["https://bsc-dataseed.binance.org/"],
-      blockExplorerUrls: ["https://bscscan.com"],
+      rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
+      blockExplorerUrls: ["https://testnet.bscscan.com/"],
     },
   ];
 
