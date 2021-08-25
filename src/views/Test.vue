@@ -27,6 +27,13 @@
               <div class="row">
                 <div
                   class="btn btn-connect mx-2 text-white"
+                  @click="getAccountAssets()"
+                >
+                  {{ assets }} Get Test
+                </div>
+                
+                <div
+                  class="btn btn-connect mx-2 text-white"
                   @click="addToken()"
                 >
                   {{ assets }} DEDA  chain ID {{ chainId }}
