@@ -3607,6 +3607,14 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootstrap-vue-3@^0.0.1-alpha.4:
+  version "0.0.1-alpha.4"
+  resolved "https://registry.yarnpkg.com/bootstrap-vue-3/-/bootstrap-vue-3-0.0.1-alpha.4.tgz#d56e438dfa658248c1392a97ab3158b1e118d09e"
+  integrity sha512-g3R4+wXBDVWNUnbaZh+M0vqq3xPnogQznZFlEdDHuRFY/RFpSBBHIiqxmS7g77KzjYCRDOs1Msonl3XZOsjzNQ==
+  dependencies:
+    bootstrap "^5.0.2"
+    core-js "^3.6.5"
+
 bootstrap-vue@^2.17.3:
   version "2.21.2"
   resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.21.2.tgz#ec38f66c3a2205becccddb6158a991d96509ed0b"
@@ -3618,10 +3626,15 @@ bootstrap-vue@^2.17.3:
     portal-vue "^2.1.7"
     vue-functional-data-merge "^3.1.0"
 
-"bootstrap@>=4.5.3 <5.0.0", bootstrap@^4.5.2:
+"bootstrap@>=4.5.3 <5.0.0":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.0.tgz#97b9f29ac98f98dfa43bf7468262d84392552fd7"
   integrity sha512-Io55IuQY3kydzHtbGvQya3H+KorS/M9rSNyfCGCg9WZ4pyT/lCxIlpJgG1GXW/PswzC84Tr2fBYi+7+jFVQQBw==
+
+bootstrap@^5.0.2, bootstrap@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.1.0.tgz#543ef8f44f4b9af67b0230f19508542fec38ef55"
+  integrity sha512-bs74WNI9BgBo3cEovmdMHikSKoXnDgA6VQjJ7TyTotU6L7d41ZyCEEelPwkYEzsG/Zjv3ie9IE3EMAje0W9Xew==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -13823,6 +13836,11 @@ vue3-apexcharts@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/vue3-apexcharts/-/vue3-apexcharts-1.4.1.tgz#ea561308430a1c5213b7f17c44ba3c845f6c490d"
   integrity sha512-96qP8JDqB9vwU7bkG5nVU+E0UGQn7yYQVqUUCLQMYWDuQyu2vE77H/UFZ1yI+hwzlSTBKT9BqnNG8JsFegB3eg==
+
+vue3-carousel@^0.1.25:
+  version "0.1.25"
+  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.1.25.tgz#6b62f1f8d81047a3a3469ac076933e3909a8fd04"
+  integrity sha512-9Inz4Spa0NSu4yz/GnhXp+/qIG4Z0slwf1rp7ywbSqFvCj4jWo4NUpmpmdAVfYMXp57JYWAgp4j5Mq/X3y53iQ==
 
 vue@^2.6.9:
   version "2.6.14"

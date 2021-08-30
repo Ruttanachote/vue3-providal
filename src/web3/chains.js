@@ -200,10 +200,10 @@ const supportedChains = [
     network_id: 97,
     rpc_url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
     native_currency: {
-      symbol: "DEDAT1",
-      name: "BNB TEST",
+      symbol: "BNB",
+      name: "BNB",
       decimals: "18",
-      contractAddress: "",
+      contractAddress: "0xa78291314a55da2dc8d592ff16ef54587e10e961",
       balance: "",
     },
   },

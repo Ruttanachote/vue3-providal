@@ -1,0 +1,82 @@
+.btn-secondary {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+  ;
+
+  &:hover {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:active {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  &:focus-within {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.btn-group>.btn:nth-child(n+3),
+.btn-group> :not(.btn-check)+.btn,
+.btn-group>.btn-group:not(:first-child)>.btn {
+  max-width: 5rem !important;
+  overflow: hidden !important;
+  // padding-left: 5px;
+  // padding-right: 5px;
+}
+
+a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none !important;
+
+  &:hover {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  &:active {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  &:focus {
+    color: #fff !important;
+    text-decoration: none !important;
+    box-shadow: none;
+  }
+
+  &:focus-within {
+    color: #fff !important;
+    text-decoration: none !important;
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    color: #fff !important;
+    text-decoration: none !important;
+    box-shadow: none;
+  }
+}

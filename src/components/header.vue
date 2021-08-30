@@ -1,160 +1,318 @@
 <template>
-  <div class="home container">
-    <header class="header">
-      <nav class="navbar">
-        <a href="#" class="nav-logo">Deda.</a>
-        <ul class="nav-menu" :class="[mobileButton ? 'active' : '']">
-          <li class="nav-item">
-            <a href="#" class="nav-link" @click="mobileButton = !mobileButton"
-              >Services</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link" @click="mobileButton = !mobileButton"
-              >Blog</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link" @click="mobileButton = !mobileButton"
-              >About</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link" @click="mobileButton = !mobileButton"
-              >Contact</a
-            >
-          </li>
-        </ul>
-        <div
-          class="hamburger"
-          @click="mobileButton = !mobileButton"
-          :class="[mobileButton ? 'active' : '']"
-        >
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <nav class="navbar">
+            <div class="header-search d-flex align-items-center">
+              <router-link class="brand-logo mr-3" to="index">
+                <img src="" alt="" width="30" />
+              </router-link>
+              <form action="#" @submit.prevent="">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"
+                      ><i class="fa fa-search"></i
+                    ></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="dashboard_log">
+              <div class="d-flex align-items-center">
+                <div
+                  class="profile_log dropdown"
+                  :class="show && 'show'"
+                  @click.capture="show = !show"
+                >
+                  <div class="user" data-toggle="dropdown">
+                    <span class="thumb"><i class="mdi mdi-account"></i></span>
+                    <span class="name">Carla Pascle</span>
+                    <span class="arrow"><i class="la la-angle-down"></i></span>
+                  </div>
+                  <div
+                    class="dropdown-menu dropdown-menu-right"
+                    :class="show && 'show'"
+                  >
+                    <router-link to="accounts" class="dropdown-item">
+                      <i class="mdi mdi-account"></i> Account
+                    </router-link>
+                    <router-link to="history" class="dropdown-item">
+                      <i class="la la-book"></i> History
+                    </router-link>
+                    <router-link to="settings" class="dropdown-item">
+                      <i class="la la-cog"></i> Setting
+                    </router-link>
+                    <router-link to="lock" class="dropdown-item">
+                      <i class="la la-lock"></i> Lock
+                    </router-link>
+                    <router-link to="signin" class="dropdown-item logout">
+                      <i class="la la-sign-out"></i> Logout
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
         </div>
-      </nav>
-    </header>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { ref, reactive } from "vue";
-
 export default {
-  setup() {
-    const mobileButton = ref(false);
-    // expose to template
+  name: "Header",
+  data() {
     return {
-      mobileButton,
+      show: false,
     };
   },
 };
 </script>
 <style lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
 .header {
-  border-bottom: 1px solid #e2e8f0;
-}
+  padding: 10px 0px;
+  position: fixed;
+  top: 0;
+  left: 240px;
+  right: 0;
+  z-index: 02;
+  transition: all 0.3s ease-in;
+  background: $body-bg;
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-}
-
-.hamburger {
-  display: none;
-}
-
-.bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background-color: #101010;
-}
-
-.nav-menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-item {
-  margin-left: 5rem;
-}
-
-.nav-link {
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: #475569;
-}
-
-.nav-link:hover {
-  color: #482ff7;
-}
-
-.nav-logo {
-  font-size: 2.1rem;
-  font-weight: 500;
-  color: #482ff7;
-}
-
-@media only screen and (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    left: -100%;
-    top: 5rem;
-    flex-direction: column;
-    background-color: #fff;
-    width: 100%;
-    border-radius: 10px;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-  }
-
-  .nav-menu.active {
+  // border-bottom: 1px solid $border-color;
+  @include respond("phone-land") {
     left: 0;
   }
 
+  .navbar {
+    padding: 0px;
+  }
+
+  .brand-logo {
+    display: none;
+
+    @include respond("phone-land") {
+      display: block;
+    }
+  }
+
+  &.landing_page {
+    left: 0;
+    padding: 20px 0px;
+    background: $white;
+    box-shadow: 0px 10px 20px rgba(55, 55, 89, 0.08);
+  }
+}
+
+button.navbar-toggler {
+  position: absolute;
+  right: 0;
+  min-width: 55px;
+  top: 2px;
+}
+
+.navbar-brand {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+
+  img {
+    max-width: 30px;
+  }
+
+  span {
+    // color      : $white;
+    font-weight: 700;
+    margin-left: 10px;
+    font-size: 24px;
+  }
+}
+
+.header_auth {
+  .btn {
+    margin-left: 10px;
+
+    @include respond("tab-port") {
+      padding: 7px;
+      min-width: 110px;
+    }
+
+    @include respond("tab-port") {
+      display: none;
+    }
+  }
+}
+
+.navbar-nav {
+  @include respond("tab-port") {
+    background: $body-bg;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px 0px;
+  }
+
   .nav-item {
-    margin: 2.5rem 0;
+    .nav-link {
+      padding: 0 20px;
+      // color: $white!important;
+      font-weight: 500;
+
+      // opacity: 0.75;
+      @include respond("tab-port") {
+        padding: 10px 20px !important;
+      }
+
+      @include respond("tab-land") {
+        padding: 10px 15px !important;
+      }
+
+      &:hover,
+      &:focus,
+      &.active {
+        color: $primary;
+      }
+    }
+
+    // &.active {
+    //     .nav-link {
+    //         color: $white !important;
+    //         @include respond('tab-port') {
+    //             color: $white !important;
+    //         }
+    //     }
+    // }
+  }
+}
+
+.profile_log {
+  cursor: pointer;
+
+  .user {
+    display: flex;
+    align-items: center;
+
+    .thumb {
+      height: 35px;
+      width: 35px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: inline-block;
+      margin-right: 15px;
+      background: $primary;
+      color: $white;
+      text-align: center;
+      padding: 4px 0;
+
+      @include respond("tab-land") {
+        margin-right: 0px;
+      }
+
+      i {
+        font-size: 20px;
+      }
+    }
+
+    .name {
+      margin-right: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      color: $dark;
+
+      @include respond("tab-land") {
+        display: none;
+      }
+
+      @include custommq($min: 1200px, $max: 1350px) {
+        display: none;
+      }
+    }
+
+    .arrow {
+      color: $dark;
+
+      i {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 16px;
+        margin-top: 6px;
+        display: inline-block;
+
+        display: none;
+      }
+
+      @include respond("phone") {
+        display: none;
+      }
+    }
   }
 
-  .hamburger {
-    display: block;
-    cursor: pointer;
+  .dropdown-menu {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    top: 50px;
+    width: 220px;
+    box-shadow: 0 36px 48px rgba($color: #1b1994, $alpha: 0.08);
+    border-radius: 5px;
+    background-color: $white;
+
+    .dropdown-item {
+      padding: 15px 20px;
+      border-bottom: 1px solid $border-color;
+      font-size: 16px;
+      color: $body-color;
+      font-weight: 500;
+
+      &:last-child {
+        border: 0px;
+      }
+
+      &.logout {
+        color: $danger;
+
+        i {
+          color: $danger;
+        }
+      }
+
+      i {
+        margin-right: 10px;
+        font-size: 22px;
+        color: $primary;
+        font-weight: bold;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        i {
+          color: $white;
+        }
+
+        color: $white;
+        background: $primary;
+      }
+
+      &.active {
+        color: $primary;
+      }
+    }
   }
 }
 
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+.header-search {
+  @include respond("phone") {
+    form {
+      max-width: 200px;
+    }
+  }
 }
 </style>

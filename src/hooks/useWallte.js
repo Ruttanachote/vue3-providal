@@ -9,8 +9,8 @@ const INITIAL_STATE = {
   provider: null,
   userAddress: "",
   connected: true,
-  chainId: 97,
-  networkId: 97,
+  chainId: 1,
+  networkId: 1,
 };
 export default function UseWallet() {
   const { ctx: _this } = getCurrentInstance();
@@ -18,6 +18,7 @@ export default function UseWallet() {
   const walletObj = reactive({ ...INITIAL_STATE });
   const fetching = ref(false);
   const assets = ref(0);
+
   //https://github.com/Web3Modal/web3modal#web3modal
   const web3Modal = new Web3Modal({
     theme: "light",
@@ -39,11 +40,47 @@ export default function UseWallet() {
     });
     _this.$forceUpdate();
   };
-  const getUserBalance = () =>
-    walletObj.web3.eth
-      .getBalance(walletObj.userAddress)
-      .then((res) => (res ? utils.fromWei(res.toString(), "ETH") : 0))
-      .then(console.log);
+
+  const getUserBalance = () => {
+    let minABI = [
+      // balanceOf
+      {
+        constant: true,
+        inputs: [{ name: "_owner", type: "address" }],
+        name: "balanceOf",
+        outputs: [{ name: "balance", type: "uint256" }],
+        type: "function",
+      },
+      // decimals
+      {
+        constant: true,
+        inputs: [],
+        name: "decimals",
+        outputs: [{ name: "", type: "uint8" }],
+        type: "function",
+      },
+    ];
+    let contract = new walletObj.web3.eth.Contract(
+      minABI,
+      "0xa78291314a55da2dc8d592ff16ef54587e10e961"
+    );
+
+    async function getBalance() {
+      const balance = await contract.methods.balanceOf(walletObj.userAddress).call()
+      .then((res) => (res ? utils.fromWei(res.toString(), "ether") : 0));
+      return balance;
+    }
+
+    return getBalance()
+    // walletObj.web3.eth
+    //   .getBalance(walletObj.userAddress)
+    //   .then((res) => (res ? utils.fromWei(res.toString(), "ETH") : 0));
+  };
+
+  //   walletObj.web3.eth
+  //     .getBalance(walletObj.userAddress)
+  //     .then((res) => (res ? utils.fromWei(res.toString(), "ETH") : 0));
+  //  .then(console.log);
 
   const getAccountAssets = async () => {
     fetching.value = true;
