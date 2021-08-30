@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-if="status === 2">
     <Carousel
       :settings="settings"
       :breakpoints="breakpoints"
@@ -11,14 +11,14 @@
           <div class="widget-card">
             <div class="widget-title">
               <h5>{{ c.token }} &#8776; {{ c.asset }}</h5>
-              <p :class=" c.sign === '+' ? 'text-success' : 'text-danger'">
+              <p :class="c.sign === '+' ? 'text-success' : 'text-danger'">
                 {{ c.sign }} {{ c.percent }}%
                 <span
                   ><i> {{ c.arrow }} </i></span
                 >
               </p>
             </div>
-            <div class="widget-info">
+            <section class="widget-info">
               <h3>$ {{ c.close }}</h3>
               <apexchart
                 type="line"
@@ -28,7 +28,7 @@
                 :options="chartOptions"
                 :series="setSeries(c)"
               ></apexchart>
-            </div>
+            </section>
           </div>
         </div>
       </Slide>
@@ -56,26 +56,26 @@ export default defineComponent({
   data: () => ({
     // carousel settings
     settings: {
-      itemsToShow: 2,
-      snapAlign: "center",
+      itemsToShow: 1,
+      snapAlign: "start",
     },
     // breakpoints are mobile first
     // any settings not specified will fallback to the carousel settings
     breakpoints: {
       // 700px and up
       700: {
-        itemsToShow: 3,
-        snapAlign: "center",
+        itemsToShow: 1,
+        snapAlign: "start",
       },
       // 1024 and up
       1024: {
-        itemsToShow: 3.5,
+        itemsToShow: 3,
         snapAlign: "start",
       },
       1280: {
         itemsToShow: 4,
         snapAlign: "start",
-      }
+      },
     },
     series: [
       {
@@ -129,15 +129,7 @@ export default defineComponent({
       },
       fill: {
         type: "gradient",
-        // gradient: {
-        //   shade: "dark",
-        //   gradientToColors: ["#FDD835"],
-        //   shadeIntensity: 1,
-        //   type: "horizontal",
-        //   opacityFrom: 1,
-        //   opacityTo: 1,
-        //   stops: [0, 100, 100, 100],
-        // },
+        colors: ['#FF6347', '#FF6347']
       },
       yaxis: {
         labels: { show: false },
@@ -162,9 +154,9 @@ export default defineComponent({
     coins: [], // live coin list from api
     asset: "USDT", // filter by base asset pair
     search: "", // filter by search string
-    sort: "assetVolume", // sort by param
+    sort: "close", // sort by param
     order: "desc", // sort order ( asc, desc )
-    limit: 50, // limit list
+    limit: 10, // limit list
     status: 0, // socket status ( 0: closed, 1: open, 2: active, -1: error )
     sock: null, // socket inst
     cx: 0,
@@ -224,13 +216,13 @@ export default defineComponent({
   },
   methods: {
     // apply sorting and toggle order
-    setSeries(chart){
+    setSeries(chart) {
       return [
         {
           name: "Sales",
           data: chart.history.slice(-20),
         },
-    ];
+      ];
     },
     sortBy(key, order) {
       if (this.sort !== key) {
@@ -418,7 +410,7 @@ export default defineComponent({
   mounted() {
     this.sockInit();
   },
-  beforeUnmount() {
+  unmounted() {
     this.sockClose();
   },
 });
@@ -449,14 +441,15 @@ export default defineComponent({
   z-index: 9999;
 }
 
-
-
 .menu {
   text-align: left;
 }
 
 .widget-card {
-  background: #1f2937;
+  // background: #1f2937;
+  //  box-shadow: inset 0px 4px 50px rgba(82, 18, 21, 0.25);
+  //  box-shadow: inset 0px 4px 50px rgba(94, 131, 113, 0.25);
+
   mix-blend-mode: normal;
   border: 1px solid #312f62;
   box-sizing: border-box;
@@ -492,5 +485,4 @@ export default defineComponent({
     }
   }
 }
-
 </style>

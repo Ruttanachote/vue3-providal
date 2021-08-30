@@ -5,10 +5,10 @@
         <img src="" alt="" />
         <span>Treemium </span></router-link
       > -->
-      <div class="menu " >
+      <div class="menu">
         <ul>
           <li :class="active === 1 && 'active'" class="avoid-clicks">
-            <router-link to="/index" :class="active === 1 && 'active'" >
+            <router-link to="/index" :class="active === 1 && 'active'">
               <span><i class="fas fa-tachometer-alt"></i></span>
               <span class="nav-text">Home</span>
             </router-link>
@@ -33,9 +33,10 @@
           </li>
         </ul>
       </div>
-      <div class="widget-card p-5 text-white my-5">
+      <div class="Description-card p-5 text-white my-5">
         <h2>Note</h2>
-        You need to have token Deda:00
+        <h4>Description</h4>
+        Nulla sedligula sedef adipiscing lucintesd gerligula sed lud luctus.
       </div>
       <!-- <div class="sidebar-footer">
         <div class="social">
@@ -57,22 +58,27 @@ export default {
     active: Number,
   },
   data() {
-    return {
-      
-    }
+    return {};
   },
 };
 </script>
 
 <style lang="scss">
+.Description-card {
+  background: rgba(31, 41, 55, 0.5);
+  box-shadow: inset 0px 4px 50px rgba(112, 124, 135, 0.25);
+  border-radius: 20px;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-ol, ul {
-    padding-left: 0px !important;
+ol,
+ul {
+  padding-left: 0px !important;
 }
 
 .sidebar {
