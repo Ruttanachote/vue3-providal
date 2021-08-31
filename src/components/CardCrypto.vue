@@ -10,7 +10,7 @@
         <div class="carousel__item">
           <div class="widget-card">
             <div class="widget-title">
-              <h5>{{ c.token }} &#8776; {{ c.asset }}</h5>
+              <h5 class="">{{ c.token }} &#8776; {{ c.asset }}</h5>
               <p :class="c.sign === '+' ? 'text-success' : 'text-danger'">
                 {{ c.sign }} {{ c.percent }}%
                 <span
@@ -478,9 +478,11 @@ export default defineComponent({
     justify-content: space-between;
 
     h5 {
+      font-size: 16px !important;
       color: #8691b4;
     }
     h3 {
+      font-size: 18px !important;
       color: #fff;
     }
   }

@@ -33,10 +33,10 @@
           </li>
         </ul>
       </div>
-      <div class="Description-card p-5 text-white my-5">
-        <h2>Note</h2>
-        <h4>Description</h4>
-        Nulla sedligula sedef adipiscing lucintesd gerligula sed lud luctus.
+      <div class="Description-card text-white p-2 my-5">
+        <h4>Note</h4>
+        <h6>Description</h6>
+        <p>Nulla sedligula sedef adipiscing lucintesd gerligula sed lud luctus.</p>
       </div>
       <!-- <div class="sidebar-footer">
         <div class="social">

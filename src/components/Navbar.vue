@@ -83,7 +83,6 @@
                       right
                       split
                       :text="userAddress ? userAddress : 'Connect'"
-              
                     >
                       <b-dropdown-item @click="addToken()"
                         ><div>+ Add BNB chain</div></b-dropdown-item

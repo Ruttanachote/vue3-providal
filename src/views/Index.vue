@@ -160,9 +160,7 @@
                         max="100"
                         step="1"
                         v-model="value"
-                        @input="updateSlider"
                         :style="{ backgroundSize: backgroundSize }"
-                        disabled
                       />
                       <div class="data">Rate value: {{ value }}</div>
                     </div>
@@ -358,6 +356,9 @@ import Sidebar from "@/components/Sidebar.vue";
 import CardCrypto from "@/components/CardCrypto.vue";
 export default {
   components: { Sidebar, CardCrypto },
+  data(){
+    return { value : 0 }
+  }
 };
 </script>
 
@@ -480,15 +481,18 @@ export default {
 }
 
 .bg-card {
-  background: linear-gradient(
-    270.48deg,
-    #99d2fc 0.42%,
-    #d7ecfb 0.43%,
-    #cbe9ff 25.79%,
-    #eaeffe 48.63%,
-    #fbe8f1 67.91%,
-    #ffe2e6 97.86%
-  );
+  // background: linear-gradient(
+  //   270.48deg,
+  //   #99d2fc 0.42%,
+  //   #d7ecfb 0.43%,
+  //   #cbe9ff 25.79%,
+  //   #eaeffe 48.63%,
+  //   #fbe8f1 67.91%,
+  //   #ffe2e6 97.86%
+  // );
+  box-shadow: 0px 10px 20px rgba(55, 55, 89, 0.08);
+  // background: #1f2937;
+
   border-radius: 15px !important;
 }
 .btn-connect {
