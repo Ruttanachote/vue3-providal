@@ -7,7 +7,7 @@ import NewTest from "../views/NewTest.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/*",
+    path: "/",
     name: "Home",
     component: Home,
     redirect: '/Index'

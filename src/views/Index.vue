@@ -4,10 +4,10 @@
       <div class="col-12">
         <CardCrypto></CardCrypto>
         <div class="row">
-          <div class="col-lg-3 col-md-2 col-12 menu">
+          <div class="col-lg-3 col-md-12 col-12 menu">
             <Sidebar></Sidebar>
           </div>
-          <div class="col-lg-9 col-md-10 col-12 py-3">
+          <div class="col-lg-9 col-md-12 col-12 py-3">
             <div class="card bg-card p-2">
               <div class="">
                 <div class="container-progress">

@@ -64,7 +64,7 @@ export default defineComponent({
     breakpoints: {
       // 700px and up
       700: {
-        itemsToShow: 1,
+        itemsToShow: 2,
         snapAlign: "start",
       },
       // 1024 and up
@@ -156,7 +156,7 @@ export default defineComponent({
     search: "", // filter by search string
     sort: "close", // sort by param
     order: "desc", // sort order ( asc, desc )
-    limit: 10, // limit list
+    limit: 20, // limit list
     status: 0, // socket status ( 0: closed, 1: open, 2: active, -1: error )
     sock: null, // socket inst
     cx: 0,

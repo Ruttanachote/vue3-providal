@@ -4,7 +4,7 @@
       <div class="header-blue">
         <nav class="navbar navbar-dark navbar-expand-md">
           <div class="container">
-            <a class="navbar-brand" href="#">Deda</a>
+            <a class="navbar-brand" href="#">Deda.</a>
             <!-- <ul class="navbar-nav mr-auto">
               <li class="nav-item">
                 <router-link to="/main" class="nav-link" href="#"
@@ -121,7 +121,7 @@
                       class="px-2"
                       right
                       split
-                      :text="userAddress ? userAddress : 'Connect'"
+                      :text="userAddress ? userAddress.slice(1,10) : 'Connect'"
                     >
                       <b-dropdown-item @click="addToken()"
                         ><div>+ Add BNB chain</div></b-dropdown-item
