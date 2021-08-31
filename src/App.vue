@@ -13,7 +13,7 @@
     <Navbar>
       <router-view />
     </Navbar>
-
+    <Footer></Footer>
     <div class="animation-area">
       <ul class="box-area">
         <li></li>
@@ -32,10 +32,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "equal-vue/dist/style.css";
 
 import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "App",
-  components: { Navbar },
+  components: { Navbar, Footer },
   data() {
     return {
       isLoading: true,
@@ -214,4 +215,7 @@ body {
 :root {
   --animationSpeed: 30s;
 }
+
+
+
 </style>

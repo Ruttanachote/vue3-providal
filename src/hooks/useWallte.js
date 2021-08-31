@@ -17,7 +17,7 @@ export default function UseWallet() {
 
   const walletObj = reactive({ ...INITIAL_STATE });
   const fetching = ref(false);
-  const assets = ref(0);
+  const assets = ref(0.0);
 
   //https://github.com/Web3Modal/web3modal#web3modal
   const web3Modal = new Web3Modal({
@@ -34,7 +34,7 @@ export default function UseWallet() {
     }
 
     web3Modal.clearCachedProvider();
-    assets.value = 0;
+    assets.value = 0.0;
     Object.keys(INITIAL_STATE).forEach((e) => {
       walletObj[e] = INITIAL_STATE[e];
     });
@@ -67,7 +67,7 @@ export default function UseWallet() {
 
     async function getBalance() {
       const balance = await contract.methods.balanceOf(walletObj.userAddress).call()
-      .then((res) => (res ? utils.fromWei(res.toString(), "ether") : 0));
+      .then((res) => (res ? utils.fromWei(res.toString(), "ether") : 0.00));
       return balance;
     }
 

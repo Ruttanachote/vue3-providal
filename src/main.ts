@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import Equal from "equal-vue";
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 import VueApexCharts from "vue3-apexcharts";
 
@@ -23,6 +25,7 @@ import Navbar from "@/components/Navbar.vue";
 import BootstrapVue3 from 'bootstrap-vue-3';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
+import 'boxicons'
 
 import "../src/assets/scss/main.scss";
 // import "./assets/css/custome.css";
@@ -35,6 +38,7 @@ app.component('layout',Navbar)
 
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(Equal); app.use(store); app.use(router);
+app.use(VueAxios, axios);
 app.use(BootstrapVue3);
 
 

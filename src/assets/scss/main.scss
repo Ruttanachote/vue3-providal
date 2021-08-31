@@ -80,3 +80,9 @@ a {
     box-shadow: none;
   }
 }
+
+
+.btn-group > .btn:nth-child(n+3), .btn-group > :not(.btn-check) + .btn, .btn-group > .btn-group:not(:first-child) > .btn {
+  max-width: none !important;
+  overflow: hidden !important;
+}

@@ -75,11 +75,50 @@
                   </div>
                 </div> -->
                 <div class="mx-auto">
-                  <b-button-group class="btn-connect mx-2">
-                    <b-button class=""> {{ assets }} Deda</b-button>
+                  <b-button-group class="btn-assets mx-2">
+                    <b-button class="">
+                      <svg
+                        class="pb-1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        style="
+                          fill: rgba(253, 249, 249, 1);
+                          transform: ;
+                          msfilter: ;
+                        "
+                      >
+                        <path
+                          d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"
+                        ></path>
+                        <path
+                          d="M12 11c-2 0-2-.63-2-1s.7-1 2-1 1.39.64 1.4 1h2A3 3 0 0 0 13 7.12V6h-2v1.09C9 7.42 8 8.71 8 10c0 1.12.52 3 4 3 2 0 2 .68 2 1s-.62 1-2 1c-1.84 0-2-.86-2-1H8c0 .92.66 2.55 3 2.92V18h2v-1.08c2-.34 3-1.63 3-2.92 0-1.12-.52-3-4-3z"
+                        ></path>
+                      </svg>
+                      {{ assets || 0.0 }} DEDA</b-button
+                    >
                   </b-button-group>
                   <b-button-group class="btn-connect">
+                    <svg
+                      class="pt-1 m-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      style="
+                        fill: rgba(253, 249, 249, 1);
+                        transform: ;
+                        msfilter: ;
+                      "
+                    >
+                      <path d="M16 12h2v4h-2z"></path>
+                      <path
+                        d="M20 7V5c0-1.103-.897-2-2-2H5C3.346 3 2 4.346 2 6v12c0 2.201 1.794 3 3 3h15c1.103 0 2-.897 2-2V9c0-1.103-.897-2-2-2zM5 5h13v2H5a1.001 1.001 0 0 1 0-2zm15 14H5.012C4.55 18.988 4 18.805 4 18V8.815c.314.113.647.185 1 .185h15v10z"
+                      ></path>
+                    </svg>
                     <b-dropdown
+                      class="px-2"
                       right
                       split
                       :text="userAddress ? userAddress : 'Connect'"
@@ -286,6 +325,11 @@ const chartOptions = {
 </script>
 
 <style lang="scss">
+.btn-assets {
+  background: #ff73b8;
+  border-radius: 50px;
+}
+
 .avatar {
   width: 80px;
   height: 80px;
@@ -413,6 +457,7 @@ const chartOptions = {
   background: linear-gradient(270deg, #e07cf9 -5%, #3bc9f7 120%);
   border-radius: 15px !important;
   border: rgba(0, 0, 0, 0.1);
+  padding-left: 0px
 }
 
 @media (min-width: 768px) {
@@ -645,18 +690,18 @@ input[type="range"] {
   width: 100%;
   margin: 16px 0;
   background: #3e3e3f;
-  background-image: -webkit-gradient(
-    linear,
-    20% 0%,
-    20% 100%,
-    color-stop(0%, #add8e6),
-    color-stop(100%, #add8e6)
-  );
-  background-image: -webkit-linear-gradient(left, #add8e6 0%, #add8e6 100%);
-  background-image: -moz-linear-gradient(left, #add8e6 0%, #add8e6 100%);
-  background-image: -o-linear-gradient(to right, #add8e6 0%, #add8e6 100%);
-  background-image: linear-gradient(to right, #add8e6 0%, #add8e6 100%);
-  background-repeat: no-repeat;
+  // background-image: -webkit-gradient(
+  //   linear,
+  //   20% 0%,
+  //   20% 100%,
+  //   color-stop(0%, #add8e6),
+  //   color-stop(100%, #add8e6)
+  // );
+  // background-image: -webkit-linear-gradient(left, #add8e6 0%, #add8e6 100%);
+  // background-image: -moz-linear-gradient(left, #add8e6 0%, #add8e6 100%);
+  // background-image: -o-linear-gradient(to right, #add8e6 0%, #add8e6 100%);
+  // background-image: linear-gradient(to right, #add8e6 0%, #add8e6 100%);
+  // background-repeat: no-repeat;
 }
 input[type="range"]:focus {
   outline: none;
@@ -672,7 +717,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 input[type="range"]::-webkit-slider-thumb {
   box-shadow: none;
-  border: 4px solid #add8e6;
+  border: 4px solid #6ccbeb;
   height: 16px;
   width: 16px;
   border-radius: 2px;
@@ -680,6 +725,10 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -6px;
+
+  border: #3e3e3f;
+   transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
 }
 input[type="range"]:focus::-webkit-slider-runnable-track {
   background: transparent;

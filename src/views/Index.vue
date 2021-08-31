@@ -160,6 +160,7 @@
                         max="100"
                         step="1"
                         v-model="value"
+                        disabled
                         :style="{ backgroundSize: backgroundSize }"
                       />
                       <div class="data">Rate value: {{ value }}</div>
@@ -336,9 +337,9 @@
                         </div>
                       </div>
                     </div>
-                    <div class="chare">
+                    <!-- <div class="chare">
                       <div class="btn btn-chare">Share</div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -356,14 +357,30 @@ import Sidebar from "@/components/Sidebar.vue";
 import CardCrypto from "@/components/CardCrypto.vue";
 export default {
   components: { Sidebar, CardCrypto },
-  data(){
-    return { value : 0 }
-  }
+  data() {
+    return { value: 0, polling: null };
+  },
+  created() {
+    this.getScore();
+  },
+  methods: {
+    getScore() {
+      this.polling = setInterval(() => {
+        const api = "https://deda-laravel-api.herokuapp.com/api/hnh_score";
+        this.axios.get(api).then((response) => {
+          console.log(response.data);
+          this.value = response.data.score || 0;
+        });
+      }, 3000);
+    },
+  },
+  unmounted() {
+    clearInterval(this.polling);
+  },
 };
 </script>
 
 <style lang="scss">
-
 .card-apex {
   top: -30px;
   position: absolute;

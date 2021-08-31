@@ -7,36 +7,49 @@
       > -->
       <div class="menu">
         <ul>
-          <li :class="active === 1 && 'active'" class="avoid-clicks">
+          <li :class="active === 1 && 'active'" class="">
             <router-link to="/index" :class="active === 1 && 'active'">
               <span><i class="fas fa-tachometer-alt"></i></span>
-              <span class="nav-text">Home</span>
+              <span class="nav-text">Heaven and Hell</span>
             </router-link>
           </li>
           <li :class="active === 2 && 'active'">
-            <router-link to="buy-sell" :class="active === 2 && 'active'">
-              <span><i class="fas fa-tachometer-alt"></i></span>
-              <span class="nav-text">Exchange</span>
+            <router-link to="#" :class="active === 2 && 'active'">
+              <span><i class="fas fa-wallet"></i></span>
+              <span class="nav-text">Other feather</span>
+              <span class="badge badge-secondary"
+                ><i class="fas fa-lock pro-color"></i> Pro</span
+              >
             </router-link>
           </li>
           <li :class="active === 3 && 'active'">
-            <router-link to="accounts" :class="active === 3 && 'active'">
-              <span><i class="fas fa-tachometer-alt"></i></span>
-              <span class="nav-text">Account</span>
+            <router-link to="#" :class="active === 3 && 'active'">
+              <span><i class="fas fa-gift"></i></span>
+              <span class="nav-text">Other feather</span>
+              <span class="badge badge-secondary"
+                ><i class="fas fa-lock pro-color"></i> Pro</span
+              >
             </router-link>
           </li>
           <li :class="active === 4 && 'active'">
-            <router-link to="settings" :class="active === 4 && 'active'">
-              <span><i class="fas fa-tachometer-alt"></i></span>
-              <span class="nav-text">Setting</span>
+            <router-link to="#" :class="active === 4 && 'active'">
+              <span><i class="far fa-newspaper"></i></span>
+              <span class="nav-text">Other feather</span>
+              <span class="badge badge-secondary"
+                ><i class="fas fa-lock pro-color"></i> Pro</span
+              >
             </router-link>
           </li>
         </ul>
       </div>
       <div class="Description-card text-white p-2 my-5">
-        <h4>Note</h4>
+        <h4 class="text-left bg-note">
+          <i class="fas fa-sticky-note"></i> Note
+        </h4>
         <h6>Description</h6>
-        <p>Nulla sedligula sedef adipiscing lucintesd gerligula sed lud luctus.</p>
+        <p>
+          Nulla sedligula sedef adipiscing lucintesd gerligula sed lud luctus.
+        </p>
       </div>
       <!-- <div class="sidebar-footer">
         <div class="social">
@@ -70,6 +83,19 @@ export default {
   border-radius: 20px;
 }
 
+.bg-note {
+  color: #ec4899;
+}
+
+.badge {
+  background: #fff;
+  margin-left: 5px;
+  color: #1f2641 !important;
+  border-radius: 50px !important;
+}
+.pro-color {
+  color: #1f2641 !important;
+}
 ul {
   list-style-type: none;
   margin: 0;
