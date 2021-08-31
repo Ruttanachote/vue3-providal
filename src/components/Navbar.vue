@@ -123,11 +123,11 @@
                       split
                       :text="userAddress ? userAddress.slice(1,10) : 'Connect'"
                     >
-                      <b-dropdown-item @click="addToken()"
-                        ><div>+ Add BNB chain</div></b-dropdown-item
+                      <b-dropdown-item 
+                        ><div @click="addNetwork()">+ Add BNB chain</div></b-dropdown-item
                       >
-                      <b-dropdown-item @click="addNetwork()"
-                        ><div>+ Add Deda Token</div></b-dropdown-item
+                      <b-dropdown-item 
+                        ><div @click="addToken()">+ Add Deda Token</div></b-dropdown-item
                       >
                       <b-dropdown-divider></b-dropdown-divider>
                       <b-dropdown-item>
